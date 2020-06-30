@@ -1,5 +1,5 @@
 ---
-title: "**MSnbase**, efficient and elegant R-based processing and visualisation of raw mass spectrometry data"
+title: "**MSnbase**, efficient and elegant R-based processing of raw mass spectrometry data"
 author: "[Laurent Gatto](#laurent-gatto), Sebastian Gibb and Johannes Rainer"
 date: "15 July 2020"
 output:
@@ -24,7 +24,7 @@ class: inverse, middle
 - Developed and maintained by a **core team** of developers (Laurent
   Gatto, Sebastian Gibb, Johannes Rainer) + 9 additional [official
   contributors](https://lgatto.github.io/msnbase-contribs-2/).
-- Thoroughly tested and documented: see http://lgatto.github.io/MSnbase/
+- Thoroughly **tested** and **documented**: see http://lgatto.github.io/MSnbase/
 
 #### **TODAY**: focus on raw mass spectrometry data
 
@@ -88,10 +88,11 @@ background-size: contain
 ---
 class: middle
 ```r
-> on_disk <- on_disk %>%
-      filterMsLevel(2) %>%
-      filterRt(c(1000, 3000)) %>%
-      filterMz(120, 135)
+> on_disk <- on_disk %>%          ## keep only
+      filterMsLevel(2) %>%        ## MS2 spectra
+      filterRt(c(1000, 3000)) %>% ## acquired 1000 and 3000 seconds
+      filterMz(120, 135)          ## m/z between 120 and 135
+## keep 50% most intense spectra
 > on_disk[precursorIntensity(on_disk) > 11e6]
 ```
 
@@ -120,7 +121,7 @@ name: laurent-gatto
 
 .rigth-col-50[
 
-## Want to learn more:
+## Want to learn more
 
 **Slides**
 https://lgatto.github.io/2020_07_15_ISMB_online/
@@ -130,7 +131,6 @@ https://lgatto.github.io/2020_07_15_ISMB_online/
 
 `MSnbase` **webpage**
 [http://lgatto.github.io/MSnbase/](http://lgatto.github.io/MSnbase/)
-
 
 ## Thank you for your attention
 

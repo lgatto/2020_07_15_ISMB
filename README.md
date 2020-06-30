@@ -21,3 +21,7 @@ infrastructure, that allows the handling of large raw mass
 spectrometry experiment on commodity hardware and illustrate how the
 package is used for elegant data processing, method development and
 visualisation.
+
+## Slides
+
+https://lgatto.github.io/2020_07_15_ISMB_online/

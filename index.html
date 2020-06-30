@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>MSnbase, efficient and elegant R-based processing and visualisation of raw mass spectrometry data</title>
+    <title>MSnbase, efficient and elegant R-based processing of raw mass spectrometry data</title>
     <meta charset="utf-8" />
     <meta name="author" content="Laurent Gatto, Sebastian Gibb and Johannes Rainer" />
     <meta name="date" content="2020-07-15" />
@@ -14,7 +14,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# <strong>MSnbase</strong>, efficient and elegant R-based processing and visualisation of raw mass spectrometry data
+# <strong>MSnbase</strong>, efficient and elegant R-based processing of raw mass spectrometry data
 ### <a href="#laurent-gatto">Laurent Gatto</a>, Sebastian Gibb and Johannes Rainer
 ### 15 July 2020
 
@@ -32,7 +32,7 @@ class: inverse, middle
 - Developed and maintained by a **core team** of developers (Laurent
   Gatto, Sebastian Gibb, Johannes Rainer) + 9 additional [official
   contributors](https://lgatto.github.io/msnbase-contribs-2/).
-- Thoroughly tested and documented: see http://lgatto.github.io/MSnbase/
+- Thoroughly **tested** and **documented**: see http://lgatto.github.io/MSnbase/
 
 #### **TODAY**: focus on raw mass spectrometry data
 
@@ -96,10 +96,11 @@ background-size: contain
 ---
 class: middle
 ```r
-&gt; on_disk &lt;- on_disk %&gt;%
-      filterMsLevel(2) %&gt;%
-      filterRt(c(1000, 3000)) %&gt;%
-      filterMz(120, 135)
+&gt; on_disk &lt;- on_disk %&gt;%          ## keep only
+      filterMsLevel(2) %&gt;%        ## MS2 spectra
+      filterRt(c(1000, 3000)) %&gt;% ## acquired 1000 and 3000 seconds
+      filterMz(120, 135)          ## m/z between 120 and 135
+## keep 50% most intense spectra
 &gt; on_disk[precursorIntensity(on_disk) &gt; 11e6]
 ```
 
@@ -128,7 +129,7 @@ name: laurent-gatto
 
 .rigth-col-50[
 
-## Want to learn more:
+## Want to learn more
 
 **Slides**
 https://lgatto.github.io/2020_07_15_ISMB_online/
@@ -138,7 +139,6 @@ https://lgatto.github.io/2020_07_15_ISMB_online/
 
 `MSnbase` **webpage**
 [http://lgatto.github.io/MSnbase/](http://lgatto.github.io/MSnbase/)
-
 
 ## Thank you for your attention
 
