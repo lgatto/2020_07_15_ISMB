@@ -123,14 +123,11 @@ name: laurent-gatto
 
 ## Want to learn more
 
-**Slides**
-https://lgatto.github.io/2020_07_15_ISMB_online/
+**Slides** https://lgatto.github.io/2020_07_15_ISMB/
 
-**Pre-print**
-[https://www.biorxiv.org/content/10.1101/2020.04.29.067868v3](https://www.biorxiv.org/content/10.1101/2020.04.29.067868v3)
+**Pre-print** https://www.biorxiv.org/content/10.1101/2020.04.29.067868v3
 
-`MSnbase` **webpage**
-[http://lgatto.github.io/MSnbase/](http://lgatto.github.io/MSnbase/)
+`MSnbase` **webpage** http://lgatto.github.io/MSnbase/
 
 ## Thank you for your attention
 
