@@ -25,3 +25,8 @@ visualisation.
 ## Slides
 
 https://lgatto.github.io/2020_07_15_ISMB/
+
+
+These slides and all material in this repository are released under [CC
+BY 4.0 license](https://creativecommons.org/licenses/by/4.0/) unless
+explicitly noted otherwise.
