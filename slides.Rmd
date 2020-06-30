@@ -125,10 +125,10 @@ name: laurent-gatto
 
 ### Want to learn more:
 
-- Slides:
-- Pre-print:
+- **Slides**: https://lgatto.github.io/2020_07_15_ISMB_online/
+- **Pre-print**:
   [https://www.biorxiv.org/content/10.1101/2020.04.29.067868v3](https://www.biorxiv.org/content/10.1101/2020.04.29.067868v3)
-- `MSnbase` webpage:
+- `MSnbase` **webpage**:
   [http://lgatto.github.io/MSnbase/](http://lgatto.github.io/MSnbase/)
 
 
