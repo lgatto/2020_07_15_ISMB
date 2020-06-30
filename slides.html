@@ -23,29 +23,92 @@ class: center, middle, inverse, title-slide
 
 
 
-class: middle
-name: cc-by
+class: inverse, middle
 
-### Get the slides at [short URL]().
+## What is MSnbase
 
-These slides are available under a **creative common
-[CC-BY license](http://creativecommons.org/licenses/by/4.0/)**. You are
-free to share (copy and redistribute the material in any medium or
-format) and adapt (remix, transform, and build upon the material) for
-any purpose, even commercially
-&lt;img height="20px" alt="CC-BY" src="./img/cc1.jpg" /&gt;.
+- **R/[Bioconductor](http://bioconductor.org/packages/release/bioc/html/MSnbase.html)
+  package**, publicly available since **October 2010**.
+- Developed and maintained by a **core team** of developers (Laurent
+  Gatto, Sebastian Gibb, Johannes Rainer) + 9 additional [official
+  contributors](https://lgatto.github.io/msnbase-contribs-2/).
+- Thoroughly tested and documented: see http://lgatto.github.io/MSnbase/
+
+#### **TODAY**: focus on raw mass spectrometry data
+
+Details in
+
+&gt; *MSnbase, efficient and elegant R-based processing and visualisation
+&gt; of raw mass spectrometry data* Laurent Gatto, Sebastian Gibb,
+&gt; Johannes Rainer bioRxiv 2020.04.29.067868; doi:
+&gt; https://doi.org/10.1101/2020.04.29.067868
 
 
 ---
-
 class: middle, center, inverse
 
-## New section
+## What do we mean by *raw data*?
+
 
 ---
-class: middle, center
+class: center, middle
+background-image: url("./figs/raw.png")
+background-size: contain
 
-## Content
+
+---
+class: middle
+
+
+```r
+&gt; library("MSnbase")
+&gt; f &lt;- msdata::proteomics(pattern = "2014", full.names = TRUE)
+&gt; basename(f)
+[1] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML.gz"
+*&gt; in_mem &lt;- readMSData(f, mode = "inMemory")
+*&gt; on_disk &lt;- readMSData(f, mode = "onDisk")
+&gt; on_disk
+MSn experiment data ("OnDiskMSnExp")
+Object size in memory: 3.31 Mb
+- - - Spectra data - - -
+ MS level(s): 1 2
+ Number of spectra: 7534
+ MSn retention times: 0:0 - 60:2 minutes
+- - - Processing information - - -
+Data loaded [Tue Jun 30 16:24:33 2020]
+ MSnbase version: 2.14.2
+[...]
+```
+
+### -&gt; Comparison of the **in-memory** and **on-disk** _backends_
+
+---
+class: middle, center, inverse
+
+## Results
+
+---
+class: center, middle
+background-image: url("./figs/res.png")
+background-size: contain
+
+
+---
+class: middle
+```r
+&gt; on_disk &lt;- on_disk %&gt;%
+      filterMsLevel(2) %&gt;%
+      filterRt(c(1000, 3000)) %&gt;%
+      filterMz(120, 135)
+&gt; on_disk[precursorIntensity(on_disk) &gt; 11e6]
+```
+
+---
+class: center, middle
+background-image: url("./figs/res.png")
+background-size: contain
+
+
 
 ---
 class: middle
@@ -60,21 +123,23 @@ name: laurent-gatto
 &lt;i class="fas fa-home"&gt;&lt;/i&gt;&amp;nbsp;https://lgatto.github.io&lt;br /&gt;
 &lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&amp;nbsp;[@lgatto](https://twitter.com/lgatt0/)&lt;br /&gt;
 &lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;[lgatto](https://github.com/lgatto/)&lt;br /&gt;
-&lt;img width="20px" align="top" alt="orcid" src="./img/orcid_64x64.png" /&gt;&amp;nbsp;[0000-0002-1520-2268](https://orcid.org/0000-0002-1520-2268)&lt;br /&gt;
-&lt;img width="20px" align="top" alt="Impact story" src="./img/keybase.png"/&gt;&amp;nbsp;[lgatto](https://keybase.io/lgatto)&lt;br /&gt;
-&lt;img width="20px" align="top" alt="Google scholar" src="./img/gscholar.png"/&gt;&amp;nbsp;[Google scholar](https://scholar.google.co.uk/citations?user=k5DrB74AAAAJ&amp;hl=en)&lt;br /&gt;
-&lt;img width="20px" align="top" alt="Impact story" src="./img/impactstory-logo.png"/&gt;&amp;nbsp;[Impact story](https://profiles.impactstory.org/u/0000-0002-1520-2268)&lt;br /&gt;
-&lt;i class="fas fa-pencil-alt"&gt;&lt;/i&gt;&amp;nbsp;[dissem.in](https://dissem.in/r/6231/laurent-gatto)&lt;br /&gt;
-&lt;!-- &lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;&amp;nbsp;https://www.linkedin.com/in/lgatto/&lt;br /&gt; --&gt;
 ]
 
 .rigth-col-50[
 
-**Acknowledgements**: ...
+### Acknowledgements: MSnbase contributors and users
 
 ## Thank you for your attention
 
-### Find the slides [online](https://raw.githack.com/lgatto/slide-templates/master/my_template.html).
+### Want to learn more:
+
+- Slides:
+- Pre-print:
+  [https://www.biorxiv.org/content/10.1101/2020.04.29.067868v3](https://www.biorxiv.org/content/10.1101/2020.04.29.067868v3)
+- `MSnbase` webpage:
+  [http://lgatto.github.io/MSnbase/](http://lgatto.github.io/MSnbase/)
+
+
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

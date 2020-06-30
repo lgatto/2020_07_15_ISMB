@@ -15,29 +15,92 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
-class: middle
-name: cc-by
+class: inverse, middle
 
-### Get the slides at [short URL]().
+## What is MSnbase
 
-These slides are available under a **creative common
-[CC-BY license](http://creativecommons.org/licenses/by/4.0/)**. You are
-free to share (copy and redistribute the material in any medium or
-format) and adapt (remix, transform, and build upon the material) for
-any purpose, even commercially
-<img height="20px" alt="CC-BY" src="./img/cc1.jpg" />.
+- **R/[Bioconductor](http://bioconductor.org/packages/release/bioc/html/MSnbase.html)
+  package**, publicly available since **October 2010**.
+- Developed and maintained by a **core team** of developers (Laurent
+  Gatto, Sebastian Gibb, Johannes Rainer) + 9 additional [official
+  contributors](https://lgatto.github.io/msnbase-contribs-2/).
+- Thoroughly tested and documented: see http://lgatto.github.io/MSnbase/
+
+#### **TODAY**: focus on raw mass spectrometry data
+
+Details in
+
+> *MSnbase, efficient and elegant R-based processing and visualisation
+> of raw mass spectrometry data* Laurent Gatto, Sebastian Gibb,
+> Johannes Rainer bioRxiv 2020.04.29.067868; doi:
+> https://doi.org/10.1101/2020.04.29.067868
 
 
 ---
-
 class: middle, center, inverse
 
-## New section
+## What do we mean by *raw data*?
+
 
 ---
-class: middle, center
+class: center, middle
+background-image: url("./figs/raw.png")
+background-size: contain
 
-## Content
+
+---
+class: middle
+
+
+```r
+> library("MSnbase")
+> f <- msdata::proteomics(pattern = "2014", full.names = TRUE)
+> basename(f)
+[1] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML.gz"
+*> in_mem <- readMSData(f, mode = "inMemory")
+*> on_disk <- readMSData(f, mode = "onDisk")
+> on_disk
+MSn experiment data ("OnDiskMSnExp")
+Object size in memory: 3.31 Mb
+- - - Spectra data - - -
+ MS level(s): 1 2
+ Number of spectra: 7534
+ MSn retention times: 0:0 - 60:2 minutes
+- - - Processing information - - -
+Data loaded [Tue Jun 30 16:24:33 2020]
+ MSnbase version: 2.14.2
+[...]
+```
+
+### -> Comparison of the **in-memory** and **on-disk** _backends_
+
+---
+class: middle, center, inverse
+
+## Results
+
+---
+class: center, middle
+background-image: url("./figs/res.png")
+background-size: contain
+
+
+---
+class: middle
+```r
+> on_disk <- on_disk %>%
+      filterMsLevel(2) %>%
+      filterRt(c(1000, 3000)) %>%
+      filterMz(120, 135)
+> on_disk[precursorIntensity(on_disk) > 11e6]
+```
+
+---
+class: center, middle
+background-image: url("./figs/res.png")
+background-size: contain
+
+
 
 ---
 class: middle
@@ -52,19 +115,21 @@ name: laurent-gatto
 <i class="fas fa-home"></i>&nbsp;https://lgatto.github.io<br />
 <i class="fab fa-twitter"></i>&nbsp;[@lgatto](https://twitter.com/lgatt0/)<br />
 <i class="fab fa-github"></i>&nbsp;[lgatto](https://github.com/lgatto/)<br />
-<img width="20px" align="top" alt="orcid" src="./img/orcid_64x64.png" />&nbsp;[0000-0002-1520-2268](https://orcid.org/0000-0002-1520-2268)<br />
-<img width="20px" align="top" alt="Impact story" src="./img/keybase.png"/>&nbsp;[lgatto](https://keybase.io/lgatto)<br />
-<img width="20px" align="top" alt="Google scholar" src="./img/gscholar.png"/>&nbsp;[Google scholar](https://scholar.google.co.uk/citations?user=k5DrB74AAAAJ&hl=en)<br />
-<img width="20px" align="top" alt="Impact story" src="./img/impactstory-logo.png"/>&nbsp;[Impact story](https://profiles.impactstory.org/u/0000-0002-1520-2268)<br />
-<i class="fas fa-pencil-alt"></i>&nbsp;[dissem.in](https://dissem.in/r/6231/laurent-gatto)<br />
-<!-- <i class="fab fa-linkedin"></i>&nbsp;https://www.linkedin.com/in/lgatto/<br /> -->
 ]
 
 .rigth-col-50[
 
-**Acknowledgements**: ...
+### Acknowledgements: MSnbase contributors and users
 
 ## Thank you for your attention
 
-### Find the slides [online](https://raw.githack.com/lgatto/slide-templates/master/my_template.html).
+### Want to learn more:
+
+- Slides:
+- Pre-print:
+  [https://www.biorxiv.org/content/10.1101/2020.04.29.067868v3](https://www.biorxiv.org/content/10.1101/2020.04.29.067868v3)
+- `MSnbase` webpage:
+  [http://lgatto.github.io/MSnbase/](http://lgatto.github.io/MSnbase/)
+
+
 ]
