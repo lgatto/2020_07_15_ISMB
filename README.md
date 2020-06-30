@@ -24,4 +24,4 @@ visualisation.
 
 ## Slides
 
-https://lgatto.github.io/2020_07_15_ISMB_online/
+https://lgatto.github.io/2020_07_15_ISMB/
