@@ -9,6 +9,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      ratio: '16:9'
 ---
 
 ```{r setup, include=FALSE}
@@ -53,13 +54,13 @@ class: middle
 
 
 ```r
-> library("MSnbase")
+> library("MSnbase") ## load the package
 > f <- msdata::proteomics(pattern = "2014", full.names = TRUE)
-> basename(f)
+> basename(f) ## example file 
 [1] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML.gz"
-*> in_mem <- readMSData(f, mode = "inMemory")
-*> on_disk <- readMSData(f, mode = "onDisk")
-> on_disk
+*> in_mem <- readMSData(f, mode = "inMemory") ## in-memory backend
+*> on_disk <- readMSData(f, mode = "onDisk")  ## on-disk backend
+> on_disk ## R representation of an MS experiment
 MSn experiment data ("OnDiskMSnExp")
 Object size in memory: 3.31 Mb
 - - - Spectra data - - -

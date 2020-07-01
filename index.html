@@ -60,13 +60,13 @@ class: middle
 
 
 ```r
-&gt; library("MSnbase")
+&gt; library("MSnbase") ## load the package
 &gt; f &lt;- msdata::proteomics(pattern = "2014", full.names = TRUE)
-&gt; basename(f)
+&gt; basename(f) ## example file 
 [1] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML.gz"
-*&gt; in_mem &lt;- readMSData(f, mode = "inMemory")
-*&gt; on_disk &lt;- readMSData(f, mode = "onDisk")
-&gt; on_disk
+*&gt; in_mem &lt;- readMSData(f, mode = "inMemory") ## in-memory backend
+*&gt; on_disk &lt;- readMSData(f, mode = "onDisk")  ## on-disk backend
+&gt; on_disk ## R representation of an MS experiment
 MSn experiment data ("OnDiskMSnExp")
 Object size in memory: 3.31 Mb
 - - - Spectra data - - -
@@ -145,7 +145,8 @@ name: laurent-gatto
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
