@@ -1,6 +1,6 @@
 ---
 title: "**MSnbase**, efficient and elegant R-based processing of raw mass spectrometry data"
-author: "[Laurent Gatto](#laurent-gatto), Sebastian Gibb and Johannes Rainer"
+author: "**Laurent Gatto** (UCLouvain, Belgium), **Sebastian Gibb** (University of Greifswald, Germany) and **Johannes Rainer** (Eurac Research, Italy)"
 date: "15 July 2020"
 output:
   xaringan::moon_reader:
